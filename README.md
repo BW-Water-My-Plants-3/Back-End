@@ -11,8 +11,8 @@ This database allows users to register, login, and add their houseplants as plan
 ### Authentication
 Method | Endpoint | Body (required) | Body (optional) | Notes
 | ----- | ----------------- | -------------------- | --------------------- | ------------------ |
-POST | /api/signup | username, password, phoneNumber as a 10-digit string | N/A | Creates a new user object in the database. On success, returns message "sign up successful" and newUser object with id and username. The newUser object does not return phoneNumber or password from the database, because that would be weird. |
-POST | /api/login |  username, password | N/A | Logs in users who already signed up/exist in the database. On success, returns message "login successful" and JSON Web Token. If unregistered users try to log in, returns "invalid username or password" |
+POST | /api/signup | username, password, phoneNumber as a 10-digit string | N/A | Creates a new user object in the database. On success, returns message "sign up successful" and newUser object with id and username. |
+POST | /api/login |  username, password | N/A | Logs in users who already exist in the database. On success, returns message "login successful" and JSON Web Token. If unregistered users try to log in, returns "invalid username or password" |
 ### Users
 Method | Endpoint | Body (required) | Body (optional) | Notes
 | ----- | ----------------- | -------------------- | --------------------- | ------------------ |
