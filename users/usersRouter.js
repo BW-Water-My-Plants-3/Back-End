@@ -6,10 +6,12 @@ const bcrypt = require('bcryptjs');
 router.put("/:id", (req, res) => {
     let updatedUser = req.body;
     const id = req.params.id;
-    // hash the password
-    const rounds = process.env.HASH_ROUNDS || 14;
-    const hash = bcrypt.hashSync(updatedUser.password, rounds);
-    updatedUser.password = hash;
+    if(updatedUser.password){
+        // hash the password
+        const rounds = process.env.HASH_ROUNDS || 14;
+        const hash = bcrypt.hashSync(updatedUser.password, rounds);
+        updatedUser.password = hash;
+    }    
     // update user
     Users.update(id, updatedUser)
     .then(response => {

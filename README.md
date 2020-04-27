@@ -47,5 +47,5 @@ Teagan Keith: https://github.com/Teagankeith
 Ben Simpson: https://github.com/TheTechSurgeon <br>
 Rachele Edwards: https://github.com/berachele
 ### Backend
-Katya Pavlopoulos: https://github.com/kp1129
+Katya Pavlopoulos: https://github.com/kp1129 <br>
 Wesley Ruedebusch: https://github.com/wesley-ruedebusch
