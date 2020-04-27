@@ -14,6 +14,10 @@ server.use(cors());
 server.use("/api", authRouter);
 server.use("/api/users", usersRouter);
 
+server.get("/", (req, res) => {
+    res.status(200).json({ message: "API is up and running! CAN ANYBODY SEE ME NOW" })
+})
+
 // delete the code below after we get some more routers going
 // this was just a middleware test
 server.get("/api/test", authenticator, (req, res) => {
