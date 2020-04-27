@@ -1,6 +1,6 @@
 # Back-End
 
-# <WATER MY PLANTS - Build Week>
+# WATER MY PLANTS - Build Week
 ## Table of Contents
 - **[Overview](#overview)**<br>
 - **[API Endpoints](#api-endpoints)**<br>
@@ -11,33 +11,13 @@ This database allows users to register, login, and add their houseplants as plan
 ### Authentication
 Method | Endpoint | Body (required) | Body (optional) | Notes
 | ----- | ----------------- | -------------------- | --------------------- | ------------------ |
-POST | /api/signup | username, password, phoneNumber | N/A | Creates a new user object in the database. |
+POST | /api/signup | username, password, phoneNumber as a 10-digit string | N/A | Creates a new user object in the database. |
 POST | /api/login |  username, password | N/A | Returns message "login successful" and JSON Web Token. |
-### Events
+### Users
 Method | Endpoint | Body (required) | Body (optional) | Notes
 | ----- | ----------------- | -------------------- | --------------------- | ------------------ |
-GET | /api/events | N/A | N/A | Returns an object of all the events in the database. |
-GET | /api/events/:organizer | N/A | N/A | Returns a singular event object based on ID. |
-POST | /api/events | Title, Date, Time, Location | Description, Link, Image, approved | Allows users to post brand new events to the database. |
-### Events (non-admin)
-Method | Endpoint | Body (required) | Body (optional) | Notes
-| ----- | ----------------- | -------------------- | --------------------- | ------------------ |
-DELETE | /api/events/:id | N/A | N/A | Allows users to delete their OWN events. |
-PUT | /api/events/:id | Title, Date, Time, Location | Description, Link, Image, approved | Allows users to edit their OWN events. |
-### Events (admin)
-Method | Endpoint | Body (required) | Body (optional) | Notes
-| ----- | ----------------- | -------------------- | --------------------- | ------------------ |
-DELETE | /api/admin/:id | N/A | N/A | Allows admins to delete ANY event. |
-PUT | /api/admin/:id | Title, Date, Time, Location | Description, Link, Image, approved | Allows admins to edit ANY event. |
-### Going
-Method | Endpoint | Body (required) | Body (optional) | Notes
-| ----- | ----------------- | -------------------- | --------------------- | ------------------ |
-GET | /api/going | N/A | N/A | Returns a list of all event confirmations (which users confirmed which events they are going to). |
-POST | /api/going | event_id | N/A | Allows users to confirm which events they are going to (MUST PROVIDE THE EVENT ID NOT THE EVENT NAME). |
-### Users (admin)
-Method | Endpoint | Body (required) | Body (optional) | Notes
-| ----- | ----------------- | -------------------- | --------------------- | ------------------ |
-GET | /api/admin/users | N/A | N/A | Allows an admin to see a list of all the users in the database. |
+PUT | /api/users/:id | either password, or phoneNumber as a 10-digit string | N/A | Returns message "user updated successfully" |
+
 ## Credits
 ### Project Manager
 Vick Javariz: https://github.com/javavick
