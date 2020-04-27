@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Users = require('./usersModel');
 const bcrypt = require('bcryptjs');
+const authenticator = require('../auth/authenticator');
 
-router.put("/:id", (req, res) => {
+router.put("/:id", authenticator, (req, res) => {
     let updatedUser = req.body;
     const id = req.params.id;
     if(updatedUser.password){
