@@ -16,7 +16,7 @@ POST | /api/login |  username, password | N/A | Logs in users who already exist 
 ### Users
 Method | Endpoint | Body (required) | Body (optional) | Notes
 | ----- | ----------------- | -------------------- | --------------------- | ------------------ |
-PUT | /api/users/:id | either password, or phoneNumber as a 10-digit string | N/A | Updates the user with this id (either their password or phoneNumber), and returns message "user updated successfully" |
+PUT | /api/users/:id | either password, or phoneNumber as a 10-digit string | N/A | Updates the user with this id, and returns message "user updated successfully" |
 
 ## Credits
 ### Project Manager
