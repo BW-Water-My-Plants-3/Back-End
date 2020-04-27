@@ -31,6 +31,38 @@ router.post("/signup", (req, res) => {
 })
 
 // login
+router.post("/login", (req, res) => {
+    let { username, password } = req.body;
 
+    // look up by username
+    Users.findBy({ username })
+    .then(user => {
+        // check that they're using the right password
+        if(user && bcrypt.compareSync(password, user.password)){
+            // proceed to log them in
+            // produce token
+            const token = generateToken(user);
+            // send token to the client
+            res.status(200).json({ message: "login successful", token })
+        } else {
+            res.status(401).json({ message: "invalid username or password" })
+        }
+    })
+    .catch(error => res.status(500).json({ message: "Oops! Something went wrong" }))
+})
+
+function generateToken(user){
+    const payload = {
+        userId: user.id,
+        username: user.username
+    };
+    const secret = secrets.jwtSecret;
+
+    const options = {
+        expiresIn: "1d"
+    };
+
+    return jwt.sign(payload, secret, options);
+}
 
 module.exports = router;
