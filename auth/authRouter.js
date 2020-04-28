@@ -26,7 +26,7 @@ router.post("/signup", (req, res) => {
             message: "sign up successful",
             newUser: { id: response.id, username: response.username } 
         }))
-        .catch(error => res.status(500).json({ message: "could not complete sign up at this time" }))
+        .catch(error => res.status(500).json({ message: "could not complete sign up at this time", error: error.message }))
     }
 })
 

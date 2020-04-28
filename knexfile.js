@@ -59,4 +59,5 @@ module.exports = {
       directory: "./database/seeds"
     }
   }
+
 };
