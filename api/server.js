@@ -15,7 +15,7 @@ server.use("/api", authRouter);
 server.use("/api/users", usersRouter);
 
 server.get("/", (req, res) => {
-    res.status(200).json({ message: "API is up and running! CAN ANYBODY SEE ME NOW" })
+    res.status(200).json({ message: "API is up and ready to go!"})
 })
 
 // delete the code below after we get some more routers going
