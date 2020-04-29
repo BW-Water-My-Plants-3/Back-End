@@ -20,7 +20,7 @@ describe('authentication endpoints', () => {
                     })
         });
 
-        it('should return message "sign up successful"', () => {
+        it('should return message "user created"', () => {
             return request(server)
                     .post("/api/signup")
                     .send({
@@ -29,7 +29,7 @@ describe('authentication endpoints', () => {
                         phoneNumber: "5555555554"
                     })
                     .then(res => {
-                        expect(res.body.message).toBe("sign up successful");
+                        expect(res.body.message).toBe("user created");
                     })
         })
     });
@@ -43,9 +43,9 @@ describe('authentication endpoints', () => {
             await request(server)
                     .post("/api/signup")
                     .send({
-                        username: "brandnewuser",
-                        password: "brandnewpassword",
-                        phoneNumber: "3213211234"
+                        username: "brandnewuser20",
+                        password: "brandnewpassword20",
+                        phoneNumber: "3213211239"
                     })
                     .then(res => {
                         expect(res.status).toBe(201);
@@ -53,8 +53,8 @@ describe('authentication endpoints', () => {
             await request(server)
                     .post("/api/login")
                     .send({
-                        username: "brandnewuser",
-                        password: "brandnewpassword"
+                        username: "brandnewuser20",
+                        password: "brandnewpassword20"
                     })
                     .then(res => {
                         expect(res.body.message).toBe("login successful")
