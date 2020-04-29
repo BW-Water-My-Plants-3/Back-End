@@ -13,7 +13,7 @@ router.post("/signup", (req, res) => {
         res.status(400).json({ message: "Must provide username, password, and 10-digit phone number to sign up" })
     } else {
          // hash the password
-        const rounds = process.env.HASH_ROUNDS || 14;
+        const rounds = 14;
         const hash = bcrypt.hashSync(user.password, rounds);
          // save hashed password
         user.password = hash;
