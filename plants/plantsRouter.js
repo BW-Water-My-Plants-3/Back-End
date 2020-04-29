@@ -34,8 +34,8 @@ router.post("/", authenticator, (req, res) => {
         res.status(400).json({ message: "Must provide nickname, species, and h2oFrequency" })
     } else {
         Plants.add(newPlant)
-        .then(response => res.status(201).json(response))
-        .catch(error => res.status(500).json({ message: "could not add new plant at this time" }))
+        .then(response => res.status(201).json({ message: "plant created"}))
+        .catch(error => res.status(500).json({ message: "could not add new plant at this time", error: error.message }))
     }
 })
 

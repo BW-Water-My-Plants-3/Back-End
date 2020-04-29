@@ -21,12 +21,7 @@ router.post("/signup", (req, res) => {
         
         // add new user to the users table
         Users.add(user)
-        .then(response => res.status(201).json( {message: "user created"}
-            // send back only the username and the db-generated user id
-            // not the rest of the user info
-            // message: "sign up successful",
-            // newUser: { id: response.id, username: response.username } 
-        ))
+        .then(response => res.status(201).json( {message: "user created"} ))
         .catch(error => {
             console.log(error);
             res.status(500).json({ message: "could not complete sign up at this time", error: error.message })})

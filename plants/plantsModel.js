@@ -8,9 +8,8 @@ module.exports = {
     findById,
 }
 
-async function add(plant) {
-    const [ id ] = await db('plants').insert(plant);
-    return findById(id);
+function add(newPlant) {
+    return db('plants').insert(newPlant);
 }
 
 function getAll(user_id) {
