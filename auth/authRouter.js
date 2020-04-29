@@ -21,7 +21,7 @@ router.post("/signup", (req, res) => {
         
         // add new user to the users table
         Users.add(user)
-        .then(response => res.status(201).json( response
+        .then(response => res.status(201).json( {message: "user created"}
             // send back only the username and the db-generated user id
             // not the rest of the user info
             // message: "sign up successful",

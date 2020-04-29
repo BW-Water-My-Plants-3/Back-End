@@ -9,7 +9,7 @@ module.exports = {
 }
 
 function add(user) {
-    return db('users').insert(user, "*");
+    return db('users').insert(user);
 }
 
 function update(id, changes) {
