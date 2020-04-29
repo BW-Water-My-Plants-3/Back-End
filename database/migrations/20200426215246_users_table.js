@@ -2,17 +2,17 @@
 exports.up = function(knex) {
   return knex.schema.createTable("users", tbl => {
     //   primary key
-    tbl.increments();
+    tbl.increments('id');
     // username - string, unique, notNullable
     tbl.string('username')
         .unique()
         .notNullable()
-        .index();
+
     // phoneNumber - string of numbers, unique, notNullable
     tbl.string('phoneNumber', 10)
         .unique()
         .notNullable()
-        .index();
+  
     // password - string, notNullable
     tbl.string('password')
         .notNullable();

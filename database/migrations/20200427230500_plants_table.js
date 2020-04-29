@@ -2,14 +2,14 @@
 exports.up = function(knex) {
   return knex.schema.createTable("plants", tbl => {
     //   primary key
-    tbl.increments();
+    tbl.increments('id');
     // foreign key - users table id
     tbl.integer('user_id')
         .notNullable()
         .references('id')
         .inTable('users')
         .onUpdate('CASCADE')
-        .onDelete('SET NULL');
+        .onDelete('CASCADE');
     // nickname - string, not nullable
     tbl.string('nickname')
         .notNullable();
