@@ -13,19 +13,20 @@ router.post("/signup", (req, res) => {
         res.status(400).json({ message: "Must provide username, password, and 10-digit phone number to sign up" })
     } else {
          // hash the password
-        const rounds = 14;
-        const hash = bcrypt.hashSync(user.password, rounds);
+        const salt = bcrypt.genSaltSync(10);
+        // const rounds = 14;
+        const hash = bcrypt.hashSync(user.password, salt);
          // save hashed password
         user.password = hash;
         
         // add new user to the users table
         Users.add(user)
-        .then(response => res.status(201).json({ 
+        .then(response => res.status(201).json( response
             // send back only the username and the db-generated user id
             // not the rest of the user info
-            message: "sign up successful",
-            newUser: { id: response.id, username: response.username } 
-        }))
+            // message: "sign up successful",
+            // newUser: { id: response.id, username: response.username } 
+        ))
         .catch(error => {
             console.log(error);
             res.status(500).json({ message: "could not complete sign up at this time", error: error.message })})
