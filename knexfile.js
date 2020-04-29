@@ -47,11 +47,9 @@ module.exports = {
   },
 
   production: {
-    client: 'sqlite3',
+    client: 'pg',
     useNullAsDefault: true,
-    connection: {
-      filename: './database/waterMyPlants.db3'
-    },
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: "./database/migrations"
     },
